@@ -12,8 +12,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -29,10 +29,6 @@ import com.noke.nokemobilelibrary.NokeServiceListener;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements DemoWebClient.DemoWebClientCallback {
 
@@ -212,10 +208,10 @@ public class MainActivity extends AppCompatActivity implements DemoWebClient.Dem
                         handler.post(new Runnable() {
                             @Override @TargetApi(23)
                             public void run() {
-                                android.support.v7.app.AlertDialog alertDialog = new android.support.v7.app.AlertDialog.Builder(MainActivity.this).create();
+                                androidx.appcompat.app.AlertDialog alertDialog = new androidx.appcompat.app.AlertDialog.Builder(MainActivity.this).create();
                                 alertDialog.setTitle(getString(R.string.location_access_required));
                                 alertDialog.setMessage(getString(R.string.location_permission_request_message));
-                                alertDialog.setButton(android.support.v7.app.AlertDialog.BUTTON_NEUTRAL, "OK",
+                                alertDialog.setButton(androidx.appcompat.app.AlertDialog.BUTTON_NEUTRAL, "OK",
                                         new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 dialog.dismiss();
@@ -285,7 +281,7 @@ public class MainActivity extends AppCompatActivity implements DemoWebClient.Dem
                 {
                     mNokeService.startScanningForNokeDevices();
                 } else {
-                    final android.support.v7.app.AlertDialog.Builder builder = new android.support.v7.app.AlertDialog.Builder(this);
+                    final androidx.appcompat.app.AlertDialog.Builder builder = new androidx.appcompat.app.AlertDialog.Builder(this);
                     builder.setTitle(getString(R.string.functionality_limited));
                     builder.setMessage(getString(R.string.no_location_message));
                     builder.setPositiveButton(android.R.string.ok, null);
